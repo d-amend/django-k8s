@@ -41,3 +41,45 @@ There can be problems with psycopg2 when running Django locally. Try this:
 
 
 ## Deployment to Production 
+
+## Kubernetes
+
+Config in
+ ~/.kube/config
+ to connect to a kubernetes cluster.
+
+Also in $projectroot/.kube
+
+Change Namespace 
+`kubectl config set-context $(kubectl config current-context) --namespace=django-k8s`
+
+### Deployments
+Deploy
+`kubectl apply -f k8s/nginx/deployment.yaml`
+
+Get Deployments
+`kubectl get deployments`
+
+Delete Deployment
+`kubectl delete deployment nginx-webser`
+
+### Pods
+
+Get Pods
+`kubectl get pods`
+
+Enter Pod via shell
+`kubectl exec -it <podname> -- /bin/bash`
+
+
+### Services
+
+Apply Service
+`kubectl apply -f service.yaml`
+
+
+### Backup/Debuggin
+
+Show current config 
+
+`kubectl get service nginx-webserver -o yaml`
