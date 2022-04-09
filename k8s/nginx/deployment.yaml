@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-webserver
+  namespace: django-k8s
+
+spec:
+  selector:
+    matchLabels:
+      app: nginx-webserver
+  template:
+    metadata:
+      labels:
+        app: nginx-webserver
+    spec:
+      containers:
+        - name: nginx
+          image: docker.io/library/nginx:latest
+          ports:
+          - name: web
+            containerPort: 80
+            protocol: TCP
+
+
+
+
