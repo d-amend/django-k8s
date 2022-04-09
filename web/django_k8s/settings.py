@@ -92,7 +92,7 @@ DATABASES = {
         "PORT": os.environ.get("POSTGRES_PORT"),
     }
 }
-print(DATABASES)
+# print(DATABASES)
 
 # DB_DATABASE = os.environ.get("POSTGRES_DB")
 # DB_PASSWORD = os.environ.get("POSTGRES_PASSWORD")
